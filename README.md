@@ -4,7 +4,7 @@ Dashboard para acompanhar a arrecadação da viagem para Salvador em 2026.2
 
 ## 🔗 Link do Dashboard
 
-📊 **Acesse aqui:** https://sthevanf.github.io/salvador
+📊 **Acesse aqui:** https://xferraz.github.io/salvador
 
 ## 💡 Dicas
 
