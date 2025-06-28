@@ -3,350 +3,754 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caixinha | Viagem a Salvador</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Dashboard - 20 Anos de Amizade</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
         
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Geist', sans-serif;
+            background: linear-gradient(135deg, #1B2035 0%, #242D4F 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          background: #f2f3f1;
-          border-radius: 20px;
-          padding: 30px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f2f3f1;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .header {
-          text-align: center;
-          margin-bottom: 40px;
-          border-bottom: 2px solid #000000;
-          padding-bottom: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 20px;
         }
 
         .header h1 {
-          color: #000000;
-          font-size: 2.5em;
-          margin-bottom: 10px;
-          font-weight: 700;
-          letter-spacing: -0.02em;
+            color: #000000;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .header p {
-          color: #999999;
-          font-size: 1.2em;
-          font-weight: 400;
+            color: #999999;
+            font-size: 1.2em;
+            font-weight: 400;
         }
 
         .summary-cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 20px;
-          margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .card {
-          background: #242D4F;
-          border-radius: 15px;
-          padding: 25px;
-          color: #ffffff;
-          text-align: center;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease;
-          border: 2px solid transparent;
+            background: #242D4F;
+            border-radius: 15px;
+            padding: 25px;
+            color: #ffffff;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .card:hover {
-          transform: translateY(-5px);
-          border-color: #ccbea7;
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            border-color: #ccbea7;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .card:nth-child(2) {
-          background: #1B2035;
+            background: #1B2035;
         }
 
         .card:nth-child(3) {
-          background: #ccbea7;
-          color: #242D4F;
+            background: #ccbea7;
+            color: #242D4F;
         }
 
         .card:nth-child(4) {
-          background: linear-gradient(45deg, #ccbea7, #242D4F);
-          color: #ffffff;
-          border: 1px solid #000000;
+            background: linear-gradient(45deg, #ccbea7, #242D4F);
+            color: #ffffff;
+            border: 1px solid #000000;
         }
 
         .card h3 {
-          font-size: 1.1em;
-          margin-bottom: 10px;
-          opacity: 0.9;
-          font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            font-weight: 600;
         }
 
         .card .value {
-          font-size: 2.2em;
-          font-weight: 700;
-          margin-bottom: 5px;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
 
         .progress-section {
-          margin-bottom: 40px;
+            margin-bottom: 40px;
         }
 
         .section-title {
-          color: #000000;
-          font-size: 1.8em;
-          margin-bottom: 20px;
-          text-align: center;
-          font-weight: 600;
-          letter-spacing: -0.02em;
+            color: #000000;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .members-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 20px;
-          margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .member-card {
-          background: #ffffff;
-          border-radius: 15px;
-          padding: 20px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          border-left: 5px solid #ccbea7;
-          border-top: 1px solid #000000;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ccbea7;
+            border-top: 1px solid #000000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-left-width: 8px;
         }
 
         .member-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 15px;
-          border-bottom: 1px solid #ebecea;
-          padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ebecea;
+            padding-bottom: 10px;
         }
 
         .member-name-container {
-          display: flex;
-          align-items: center;
-          gap: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .member-avatar {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          font-size: 0.9em;
-          color: #ffffff;
-          border: 2px solid rgba(0, 0, 0, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9em;
+            color: #ffffff;
+            border: 2px solid rgba(0, 0, 0, 0.1);
         }
 
         .member-name {
-          font-size: 1.3em;
-          font-weight: 600;
-          color: #000000;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #000000;
         }
 
         .member-total {
-          font-size: 1.1em;
-          color: #ccbea7;
-          font-weight: 700;
+            font-size: 1.1em;
+            color: #ccbea7;
+            font-weight: 700;
         }
 
-        .payment-months {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 10px;
+        .click-hint {
+            font-size: 0.8em;
+            color: #999999;
+            margin-top: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .month-badge {
-          padding: 4px 6px;
-          border-radius: 50%;
-          font-size: 0.65em;
-          font-weight: 700;
-          border: 1px solid transparent;
-          width: 22px;
-          height: 22px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 2px;
-        }
-
-        .paid {
-          background: #ccbea7;
-          color: #000000;
-          border-color: #000000;
-        }
-
-        .pending {
-          background: #999999;
-          color: #ffffff;
-        }
-
-        .timeline {
-          background: #ffffff;
-          border-radius: 15px;
-          padding: 25px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          border-top: 3px solid #000000;
-        }
-
-        .timeline-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px 0;
-          border-bottom: 1px solid #ebecea;
-        }
-
-        .timeline-item:last-child {
-          border-bottom: none;
-        }
-
-        .month-info {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-        }
-
-        .month-circle {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          color: #ffffff;
-          font-size: 0.9em;
-          border: 2px solid transparent;
-        }
-
-        .completed {
-          background: #ccbea7;
-          color: #000000;
-          border-color: #000000;
-        }
-
-        .current {
-          background: #242D4F;
-          color: #ccbea7;
-          border-color: #ccbea7;
-        }
-
-        .future {
-          background: #999999;
+        .arrow-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ccbea7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            font-weight: 700;
+            font-size: 0.7em;
         }
 
         .progress-bar {
-          width: 100%;
-          height: 20px;
-          background: #ebecea;
-          border-radius: 10px;
-          overflow: hidden;
-          margin: 20px 0;
-          border: 1px solid #000000;
+            width: 100%;
+            height: 20px;
+            background: #ebecea;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 1px solid #000000;
         }
 
         .progress-fill {
-          height: 100%;
-          background: linear-gradient(90deg, #ccbea7, #242D4F);
-          border-radius: 10px;
-          transition: width 0.5s ease;
-          width: 18.4%;
+            height: 100%;
+            background: linear-gradient(90deg, #ccbea7, #242D4F);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ebecea;
+            padding-bottom: 15px;
+        }
+
+        .modal-member-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modal-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #ffffff;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-member-name {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .close {
+            color: #999999;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #000000;
+        }
+
+        .payment-details {
+            margin-bottom: 25px;
+        }
+
+        .payment-details h3 {
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .payments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-month {
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+            border: 2px solid transparent;
+        }
+
+        .payment-month.paid {
+            background: #ccbea7;
+            color: #000000;
+            border-color: #000000;
+        }
+
+        .payment-month.pending {
+            background: #f5f5f5;
+            color: #999999;
+            border-color: #ebecea;
+        }
+
+        .payment-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #ccbea7;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-row:last-child {
+            margin-bottom: 0;
+            font-weight: 700;
+            font-size: 1.1em;
+            border-top: 1px solid #ebecea;
+            padding-top: 10px;
+        }
+
+        /* Timeline Styles */
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-timeline {
+            background: #242D4F;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-timeline:hover {
+            background: #ccbea7;
+            color: #000000;
+        }
+
+        .timeline {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #000000;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ebecea;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-item.hidden {
+            display: none;
+        }
+
+        .month-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .month-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 0.9em;
+            border: 2px solid transparent;
+        }
+
+        .completed {
+            background: #ccbea7;
+            color: #000000;
+            border-color: #000000;
+        }
+
+        .current {
+            background: #242D4F;
+            color: #ccbea7;
+            border-color: #ccbea7;
+        }
+
+        .future {
+            background: #999999;
         }
 
         .timeline-avatars {
-          display: flex;
-          gap: 4px;
-          margin-top: 8px;
-          flex-wrap: wrap;
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            flex-wrap: wrap;
         }
 
         .timeline-avatar {
-          width: 20px;
-          height: 20px;
-          border-radius: 4px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          font-size: 0.7em;
-          color: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.7em;
+            color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .update-info {
-          text-align: center;
-          margin-top: 30px;
-          padding: 20px;
-          background: #ebecea;
-          border-radius: 10px;
-          color: #999999;
-          border: 1px solid #000000;
-        }
-
-        .page-container {
-          font-family: 'Geist', sans-serif;
-          background: linear-gradient(135deg, #1B2035 0%, #242D4F 100%);
-          min-height: 100vh;
-          padding: 20px;
-        }
-
-        @media (max-width: 768px) {
-          .summary-cards {
-            grid-template-columns: 1fr;
-          }
-          
-          .members-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .container {
+            text-align: center;
+            margin-top: 30px;
             padding: 20px;
-            margin: 10px;
-          }
-          
-          .header h1 {
-            font-size: 2em;
-          }
+            background: #ebecea;
+            border-radius: 10px;
+            color: #999999;
+            border: 1px solid #000000;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card .value {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .member-card {
+                padding: 15px;
+            }
+
+            .member-name {
+                font-size: 1.2em;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .toggle-timeline {
+                width: 100%;
+                padding: 12px 20px;
+            }
+
+            .timeline {
+                padding: 20px;
+            }
+
+            .timeline-item {
+                padding: 12px 0;
+            }
+
+            .month-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8em;
+            }
+
+            /* Modal optimizations for mobile */
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                max-width: none;
+                padding: 20px;
+                border-radius: 15px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .modal-header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+
+            .modal-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1em;
+            }
+
+            .modal-member-name {
+                font-size: 1.5em;
+            }
+
+            .payments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .payment-month {
+                padding: 10px 8px;
+                font-size: 0.8em;
+            }
+
+            .payment-summary {
+                padding: 15px;
+            }
+
+            .summary-row {
+                margin-bottom: 8px;
+                font-size: 0.9em;
+            }
+
+            .update-info {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card .value {
+                font-size: 1.6em;
+            }
+
+            .payments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 5% auto;
+                width: 98%;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Caixinha | Viagem a Salvador</h1>
+            <p>2006.2 🖤 2026.2</p>
+        </div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Saldo Atual</h3>
+                <div class="value">R$ 552,11</div>
+                <small>Incluindo rendimentos</small>
+            </div>
+            <div class="card">
+                <h3>Total Arrecadado</h3>
+                <div class="value">R$ 540,00</div>
+                <small>4 de 20 meses concluídos</small>
+            </div>
+            <div class="card">
+                <h3>Meta Total</h3>
+                <div class="value">R$ 3.000</div>
+                <small>20 meses × R$30 × 5 pessoas</small>
+            </div>
+            <div class="card">
+                <h3>Progresso</h3>
+                <div class="value">18.4%</div>
+                <small>4 de 20 meses concluídos</small>
+            </div>
+        </div>
 
-        const DashboardCaixinha = () => {
-          // Dados dos membros com cores individuais
-          const members = [
-            { name: 'Laís', initial: 'L', color: '#8B4513', payments: ['M', 'A', 'M', 'J'], total: 120 },
-            { name: 'Vanessa', initial: 'V', color: '#556B2F', payments: ['M', 'A', 'M', 'J'], total: 120 },
-            { name: 'Kelly', initial: 'K', color: '#2F4F4F', payments: ['M', 'A', 'M', 'J'], total: 120 },
-            { name: 'Sthevan', initial: 'S', color: '#8B6F47', payments: ['M', 'A', 'M', 'J'], total: 120 },
-            { name: 'Carlos', initial: 'C', color: '#4A4A4A', payments: ['M', 'A'], total: 60 }
-          ];
+        <div class="progress-section">
+            <h2 class="section-title">Progresso Geral</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 18.4%;"></div>
+            </div>
+            <p style="text-align: center; color: #999999;">18.4% concluído • R$ 2.448 restantes</p>
+        </div>
 
-          // Cronograma completo
-          const months = [
+        <div class="progress-section">
+            <h2 class="section-title">Status Individual</h2>
+            <div class="members-grid" id="membersGrid">
+                <!-- Membros serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="timeline-header">
+                <h2 class="section-title" style="margin-bottom: 0;">Cronograma</h2>
+                <button class="toggle-timeline" id="toggleTimelineBtn">
+                    Ver todos os meses
+                </button>
+            </div>
+            <div class="timeline" id="timeline">
+                <!-- Timeline será inserida aqui via JavaScript -->
+            </div>
+        </div>
+
+        <div class="update-info">
+            <p><strong>Última atualização:</strong> junho 2025</p>
+            <p><strong>Dica:</strong> O dinheiro está rendendo! Já temos R$ 12,11 de rendimento.</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-member-info">
+                    <div class="modal-avatar" id="modalAvatar"></div>
+                    <div class="modal-member-name" id="modalMemberName"></div>
+                </div>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="payment-details">
+                <h3>Histórico de Pagamentos</h3>
+                <div class="payments-grid" id="paymentsGrid">
+                    <!-- Pagamentos serão inseridos aqui -->
+                </div>
+            </div>
+
+            <div class="payment-summary" id="paymentSummary">
+                <!-- Resumo será inserido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados dos membros com cores individuais
+        const members = [
+            { 
+                name: 'Laís', 
+                initial: 'L', 
+                color: '#8B4513', 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
+                total: 120 
+            },
+            { 
+                name: 'Vanessa', 
+                initial: 'V', 
+                color: '#556B2F', 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
+                total: 120 
+            },
+            { 
+                name: 'Kelly', 
+                initial: 'K', 
+                color: '#2F4F4F', 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
+                total: 120 
+            },
+            { 
+                name: 'Sthevan', 
+                initial: 'S', 
+                color: '#8B6F47', 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
+                total: 120 
+            },
+            { 
+                name: 'Carlos', 
+                initial: 'C', 
+                color: '#4A4A4A', 
+                payments: ['Mar 2025', 'Abr 2025'], 
+                total: 60 
+            }
+        ];
+
+        // Cronograma completo
+        const months = [
             { name: 'Mar 2025', status: 'completed' },
             { name: 'Abr 2025', status: 'completed' },
             { name: 'Mai 2025', status: 'completed' },
@@ -367,196 +771,230 @@
             { name: 'Ago 2026', status: 'future' },
             { name: 'Set 2026', status: 'future' },
             { name: 'Out 2026', status: 'future' }
-          ];
+        ];
 
-          // Todos os 20 meses com suas iniciais
-          const allMonthsData = [
-            { initial: 'M', name: 'Mar 25', isPast: true },
-            { initial: 'A', name: 'Abr 25', isPast: true },
-            { initial: 'M', name: 'Mai 25', isPast: true },
-            { initial: 'J', name: 'Jun 25', isPast: true },
-            { initial: 'J', name: 'Jul 25', isPast: false },
-            { initial: 'A', name: 'Ago 25', isPast: false },
-            { initial: 'S', name: 'Set 25', isPast: false },
-            { initial: 'O', name: 'Out 25', isPast: false },
-            { initial: 'N', name: 'Nov 25', isPast: false },
-            { initial: 'D', name: 'Dez 25', isPast: false },
-            { initial: 'J', name: 'Jan 26', isPast: false },
-            { initial: 'F', name: 'Fev 26', isPast: false },
-            { initial: 'M', name: 'Mar 26', isPast: false },
-            { initial: 'A', name: 'Abr 26', isPast: false },
-            { initial: 'M', name: 'Mai 26', isPast: false },
-            { initial: 'J', name: 'Jun 26', isPast: false },
-            { initial: 'J', name: 'Jul 26', isPast: false },
-            { initial: 'A', name: 'Ago 26', isPast: false },
-            { initial: 'S', name: 'Set 26', isPast: false },
-            { initial: 'O', name: 'Out 26', isPast: false }
-          ];
+        let showAllMonths = false;
 
-          const monthsPassedSoFar = 4;
-          const totalMonths = 20;
-
-          const renderMemberCard = (member) => {
-            const completedPayments = member.payments.length;
-            const missingPayments = monthsPassedSoFar - completedPayments;
+        // Renderizar membros
+        function renderMembers() {
+            const container = document.getElementById('membersGrid');
+            container.innerHTML = '';
             
-            return React.createElement('div', { key: member.name, className: 'member-card' }, [
-              React.createElement('div', { className: 'member-header' }, [
-                React.createElement('div', { className: 'member-name-container' }, [
-                  React.createElement('div', { 
-                    className: 'member-avatar', 
-                    style: { backgroundColor: member.color }
-                  }, member.initial),
-                  React.createElement('div', { className: 'member-name' }, member.name)
-                ]),
-                React.createElement('div', { className: 'member-total' }, `R$ ${member.total}`)
-              ]),
-              React.createElement('div', { 
-                style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' }
-              }, [
-                React.createElement('span', { style: { color: '#999999' }}, `Pagamentos: ${completedPayments}/${totalMonths}`),
-                React.createElement('span', { 
-                  style: { 
-                    color: missingPayments > 0 ? '#000000' : '#ccbea7', 
-                    fontWeight: 600 
-                  }
-                }, missingPayments > 0 ? `${missingPayments} em atraso` : 'Em dia')
-              ]),
-              React.createElement('div', { className: 'payment-months' }, 
-                allMonthsData.map((monthData, index) => {
-                  let isPaid = false;
-                  if (member.payments.length >= 4) {
-                    isPaid = index < 4;
-                  } else {
-                    isPaid = index < member.payments.length;
-                  }
-                  
-                  return React.createElement('span', {
-                    key: index,
-                    className: `month-badge ${isPaid ? 'paid' : 'pending'}`,
-                    title: monthData.name
-                  }, monthData.initial);
-                })
-              )
-            ]);
-          };
+            const monthsPassedSoFar = 4;
+            const totalMonths = 20;
 
-          const renderTimelineItem = (month, index) => {
-            let statusText = '';
-            let avatarsHtml = null;
-            
-            if (month.status === 'completed') {
-              const whosPaid = members.filter(member => {
-                if (month.name === 'Mar 2025') return member.payments.length >= 1;
-                if (month.name === 'Abr 2025') return member.payments.length >= 2;
-                if (month.name === 'Mai 2025') return member.payments.length >= 3;
-                if (month.name === 'Jun 2025') return member.payments.length >= 4;
-                return false;
-              });
-              
-              const actualPayments = whosPaid.length * 30;
-              statusText = `R$ ${actualPayments} arrecadados`;
-              
-              avatarsHtml = React.createElement('div', { className: 'timeline-avatars' },
-                whosPaid.map(member => 
-                  React.createElement('div', {
-                    key: member.name,
-                    className: 'timeline-avatar',
-                    style: { backgroundColor: member.color },
-                    title: member.name
-                  }, member.initial)
-                )
-              );
-            } else if (month.status === 'current') {
-              statusText = 'Mês atual - aguardando pagamentos';
-            } else {
-              statusText = 'R$ 150 esperados';
+            members.forEach((member, index) => {
+                const completedPayments = member.payments.length;
+                const missingPayments = monthsPassedSoFar - completedPayments;
+                
+                const memberCard = document.createElement('div');
+                memberCard.className = 'member-card';
+                memberCard.onclick = () => openMemberModal(member);
+                
+                memberCard.innerHTML = `
+                    <div class="member-header">
+                        <div class="member-name-container">
+                            <div class="member-avatar" style="background-color: ${member.color};">
+                                ${member.initial}
+                            </div>
+                            <div class="member-name">${member.name}</div>
+                        </div>
+                        <div class="member-total">R$ ${member.total}</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #999999;">Pagamentos: ${completedPayments}/${totalMonths}</span>
+                        <span style="color: ${missingPayments > 0 ? '#000000' : '#ccbea7'}; font-weight: 600;">
+                            ${missingPayments > 0 ? `${missingPayments} em atraso` : 'Em dia'}
+                        </span>
+                    </div>
+                    <div class="click-hint">
+                        Ver detalhes 
+                        <div class="arrow-circle">›</div>
+                    </div>
+                `;
+                
+                container.appendChild(memberCard);
+            });
+        }
+
+        // Abrir modal do membro
+        function openMemberModal(member) {
+            const modal = document.getElementById('memberModal');
+            const modalAvatar = document.getElementById('modalAvatar');
+            const modalName = document.getElementById('modalMemberName');
+            const paymentsGrid = document.getElementById('paymentsGrid');
+            const paymentSummary = document.getElementById('paymentSummary');
+
+            // Configurar cabeçalho do modal
+            modalAvatar.style.backgroundColor = member.color;
+            modalAvatar.textContent = member.initial;
+            modalName.textContent = member.name;
+
+            // Renderizar grid de pagamentos
+            paymentsGrid.innerHTML = '';
+            months.forEach(month => {
+                const isPaid = member.payments.includes(month.name);
+                const paymentMonth = document.createElement('div');
+                paymentMonth.className = `payment-month ${isPaid ? 'paid' : 'pending'}`;
+                paymentMonth.innerHTML = `
+                    <div style="font-weight: 700;">${month.name.split(' ')[0]}</div>
+                    <div style="font-size: 0.8em;">${month.name.split(' ')[1]}</div>
+                    <div style="font-size: 0.8em; margin-top: 4px;">
+                        ${isPaid ? '✓ Pago' : '○ Pendente'}
+                    </div>
+                `;
+                paymentsGrid.appendChild(paymentMonth);
+            });
+
+            // Calcular estatísticas
+            const totalPaid = member.payments.length;
+            const totalPending = 20 - totalPaid;
+            const amountPaid = totalPaid * 30;
+            const amountPending = totalPending * 30;
+            const monthsPassed = 4;
+            const inArrears = Math.max(0, monthsPassed - totalPaid);
+
+            // Renderizar resumo
+            paymentSummary.innerHTML = `
+                <div class="summary-row">
+                    <span>Meses pagos:</span>
+                    <span>${totalPaid}/20</span>
+                </div>
+                <div class="summary-row">
+                    <span>Valor pago:</span>
+                    <span>R$ ${amountPaid}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Pendente:</span>
+                    <span>R$ ${amountPending}</span>
+                </div>
+                ${inArrears > 0 ? `
+                <div class="summary-row" style="color: #d32f2f;">
+                    <span>Meses em atraso:</span>
+                    <span>${inArrears}</span>
+                </div>
+                ` : ''}
+                <div class="summary-row">
+                    <span>Total esperado:</span>
+                    <span>R$ 600</span>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        // Fechar modal
+        function closeModal() {
+            const modal = document.getElementById('memberModal');
+            modal.style.display = 'none';
+        }
+
+        // Renderizar timeline
+        function renderTimeline() {
+            const container = document.getElementById('timeline');
+            container.innerHTML = '';
+
+            const monthMapping = {
+                'Mar 2025': 'M',
+                'Abr 2025': 'A', 
+                'Mai 2025': 'M',
+                'Jun 2025': 'J',
+                'Jul 2025': 'J',
+                'Ago 2025': 'A',
+                'Set 2025': 'S',
+                'Out 2025': 'O',
+                'Nov 2025': 'N',
+                'Dez 2025': 'D',
+                'Jan 2026': 'J',
+                'Fev 2026': 'F',
+                'Mar 2026': 'M',
+                'Abr 2026': 'A',
+                'Mai 2026': 'M',
+                'Jun 2026': 'J',
+                'Jul 2026': 'J',
+                'Ago 2026': 'A',
+                'Set 2026': 'S',
+                'Out 2026': 'O'
+            };
+
+            months.forEach((month, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                
+                // Ocultar meses futuros se não estiver mostrando todos
+                if (!showAllMonths && month.status === 'future' && index > 5) {
+                    timelineItem.className += ' hidden';
+                }
+                
+                let statusText = '';
+                let avatarsHtml = '';
+                
+                if (month.status === 'completed') {
+                    const whosPaid = members.filter(member => 
+                        member.payments.includes(month.name)
+                    );
+                    
+                    const actualPayments = whosPaid.length * 30;
+                    statusText = `R$ ${actualPayments} arrecadados`;
+                    
+                    avatarsHtml = `
+                        <div class="timeline-avatars">
+                            ${whosPaid.map(member => 
+                                `<div class="timeline-avatar" style="background-color: ${member.color};" title="${member.name}">
+                                    ${member.initial}
+                                </div>`
+                            ).join('')}
+                        </div>
+                    `;
+                } else if (month.status === 'current') {
+                    statusText = 'Mês atual - aguardando pagamentos';
+                } else {
+                    statusText = 'R$ 150 esperados';
+                }
+                
+                timelineItem.innerHTML = `
+                    <div class="month-info">
+                        <div class="month-circle ${month.status}">
+                            ${index + 1}
+                        </div>
+                        <div>
+                            <strong>${month.name}</strong>
+                            <div style="color: #999999; font-size: 0.9em;">${statusText}</div>
+                            ${avatarsHtml}
+                        </div>
+                    </div>
+                    <div style="color: #999999;">
+                        ${month.status === 'completed' ? 'Concluído' : month.status === 'current' ? 'Atual' : 'Pendente'}
+                    </div>
+                `;
+                
+                container.appendChild(timelineItem);
+            });
+        }
+
+        // Toggle timeline
+        function toggleTimeline() {
+            showAllMonths = !showAllMonths;
+            const button = document.getElementById('toggleTimelineBtn');
+            button.textContent = showAllMonths ? 'Ver apenas próximos' : 'Ver todos os meses';
+            renderTimeline();
+        }
+
+        // Event listeners
+        document.getElementById('closeModal').onclick = closeModal;
+        document.getElementById('toggleTimelineBtn').onclick = toggleTimeline;
+
+        // Fechar modal clicando fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('memberModal');
+            if (event.target === modal) {
+                closeModal();
             }
-            
-            return React.createElement('div', { key: month.name, className: 'timeline-item' }, [
-              React.createElement('div', { className: 'month-info' }, [
-                React.createElement('div', { className: `month-circle ${month.status}` }, index + 1),
-                React.createElement('div', {}, [
-                  React.createElement('strong', {}, month.name),
-                  React.createElement('div', { style: { color: '#999999', fontSize: '0.9em' }}, statusText),
-                  avatarsHtml
-                ])
-              ]),
-              React.createElement('div', { style: { color: '#999999' }}, 
-                month.status === 'completed' ? 'Concluído' : month.status === 'current' ? 'Atual' : 'Pendente'
-              )
-            ]);
-          };
+        }
 
-          return React.createElement('div', { className: 'page-container' }, 
-            React.createElement('div', { className: 'container' }, [
-              React.createElement('div', { className: 'header' }, [
-                React.createElement('h1', {}, 'Caixinha | Viagem a Salvador'),
-                React.createElement('p', {}, '2006.2 🖤 2026.2')
-              ]),
-              
-              React.createElement('div', { className: 'summary-cards' }, [
-                React.createElement('div', { className: 'card' }, [
-                  React.createElement('h3', {}, 'Saldo Atual'),
-                  React.createElement('div', { className: 'value' }, 'R$ 552,11'),
-                  React.createElement('small', {}, 'Incluindo rendimentos')
-                ]),
-                React.createElement('div', { className: 'card' }, [
-                  React.createElement('h3', {}, 'Total Arrecadado'),
-                  React.createElement('div', { className: 'value' }, 'R$ 540,00'),
-                  React.createElement('small', {}, '4 de 20 meses concluídos')
-                ]),
-                React.createElement('div', { className: 'card' }, [
-                  React.createElement('h3', {}, 'Meta Total'),
-                  React.createElement('div', { className: 'value' }, 'R$ 3.000'),
-                  React.createElement('small', {}, '20 meses × R$30 × 5 pessoas')
-                ]),
-                React.createElement('div', { className: 'card' }, [
-                  React.createElement('h3', {}, 'Progresso'),
-                  React.createElement('div', { className: 'value' }, '18.4%'),
-                  React.createElement('small', {}, '4 de 20 meses concluídos')
-                ])
-              ]),
-
-              React.createElement('div', { className: 'progress-section' }, [
-                React.createElement('h2', { className: 'section-title' }, 'Progresso Geral'),
-                React.createElement('div', { className: 'progress-bar' }, 
-                  React.createElement('div', { className: 'progress-fill' })
-                ),
-                React.createElement('p', { 
-                  style: { textAlign: 'center', color: '#999999' }
-                }, '18.4% concluído • R$ 2.448 restantes')
-              ]),
-
-              React.createElement('div', { className: 'progress-section' }, [
-                React.createElement('h2', { className: 'section-title' }, 'Status Individual'),
-                React.createElement('div', { className: 'members-grid' }, 
-                  members.map(member => renderMemberCard(member))
-                )
-              ]),
-
-              React.createElement('div', { className: 'progress-section' }, [
-                React.createElement('h2', { className: 'section-title' }, 'Cronograma'),
-                React.createElement('div', { className: 'timeline' }, 
-                  months.map((month, index) => renderTimelineItem(month, index))
-                )
-              ]),
-
-              React.createElement('div', { className: 'update-info' }, [
-                React.createElement('p', {}, [
-                  React.createElement('strong', {}, 'Última atualização: '),
-                  'Junho 2025'
-                ]),
-                React.createElement('p', {}, [
-                  React.createElement('strong', {}, 'Dica: '),
-                  'O dinheiro está rendendo! Já temos R$ 12,11 de rendimento.'
-                ])
-              ])
-            ])
-          );
-        };
-
-        ReactDOM.render(React.createElement(DashboardCaixinha), document.getElementById('root'));
+        // Inicializar
+        renderMembers();
+        renderTimeline();
     </script>
 </body>
 </html>
