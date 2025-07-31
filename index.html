@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - 20 anos de amizade</title>
+    <title>Dashboard - 20 Anos de Amizade</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
         
@@ -659,13 +659,13 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 552,11</div>
+                <div class="value">R$ 740,26</div>
                 <small>Incluindo rendimentos</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
-                <div class="value">R$ 540,00</div>
-                <small>4 de 20 meses concluídos</small>
+                <div class="value">R$ 720,00</div>
+                <small>5 de 20 meses concluídos</small>
             </div>
             <div class="card">
                 <h3>Meta Total</h3>
@@ -674,17 +674,17 @@
             </div>
             <div class="card">
                 <h3>Progresso</h3>
-                <div class="value">18.4%</div>
-                <small>4 de 20 meses concluídos</small>
+                <div class="value">25.0%</div>
+                <small>5 de 20 meses concluídos</small>
             </div>
         </div>
 
         <div class="progress-section">
             <h2 class="section-title">Progresso Geral</h2>
             <div class="progress-bar">
-                <div class="progress-fill" style="width: 18.4%;"></div>
+                <div class="progress-fill" style="width: 25.0%;"></div>
             </div>
-            <p style="text-align: center; color: #999999;">18.4% concluído • R$ 2.448 restantes</p>
+            <p style="text-align: center; color: #999999;">25.0% concluído • R$ 2.280 restantes</p>
         </div>
 
         <div class="progress-section">
@@ -707,8 +707,8 @@
         </div>
 
         <div class="update-info">
-            <p><strong>Última atualização:</strong> 28 de junho de 2025</p>
-            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 12,11</strong> até agora.</p>
+            <p><strong>Última atualização:</strong> 31 de julho de 2025</p>
+            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 20,26</strong> até agora.</p>
         </div>
     </div>
 
@@ -764,15 +764,15 @@
                 name: 'Sthevan', 
                 initial: 'S', 
                 color: '#8B6F47', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
-                total: 120 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'], 
+                total: 210 
             },
             { 
                 name: 'Carlos', 
                 initial: 'C', 
                 color: '#4A4A4A', 
-                payments: ['Mar 2025', 'Abr 2025'], 
-                total: 60 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025'], 
+                total: 150 
             }
         ];
 
@@ -782,8 +782,8 @@
             { name: 'Abr 2025', status: 'completed' },
             { name: 'Mai 2025', status: 'completed' },
             { name: 'Jun 2025', status: 'completed' },
-            { name: 'Jul 2025', status: 'current' },
-            { name: 'Ago 2025', status: 'future' },
+            { name: 'Jul 2025', status: 'completed' },
+            { name: 'Ago 2025', status: 'current' },
             { name: 'Set 2025', status: 'future' },
             { name: 'Out 2025', status: 'future' },
             { name: 'Nov 2025', status: 'future' },
@@ -878,7 +878,7 @@
             const totalPending = 20 - totalPaid;
             const amountPaid = totalPaid * 30;
             const amountPending = totalPending * 30;
-            const monthsPassed = 4;
+            const monthsPassed = 5;
             const inArrears = Math.max(0, monthsPassed - totalPaid);
 
             // Renderizar resumo
