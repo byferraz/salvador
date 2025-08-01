@@ -807,12 +807,12 @@
             const container = document.getElementById('membersGrid');
             container.innerHTML = '';
             
-            const monthsPassedSoFar = 4;
+            const monthsPassedSoFar = 5;
             const totalMonths = 20;
 
             members.forEach((member, index) => {
                 const completedPayments = member.payments.length;
-                const missingPayments = monthsPassedSoFar - completedPayments;
+                const missingPayments = Math.max(0, monthsPassedSoFar - completedPayments);
                 
                 const memberCard = document.createElement('div');
                 memberCard.className = 'member-card';
