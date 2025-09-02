@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - 20 Anos de Amizade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -14,7 +19,7 @@
         }
 
         body {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #1B2035 0%, #242D4F 100%);
             min-height: 100vh;
             padding: 20px;
@@ -37,6 +42,7 @@
         }
 
         .header h1 {
+            font-family: 'Rubik', sans-serif;
             color: #000000;
             font-size: 2.5em;
             margin-bottom: 10px;
@@ -90,6 +96,7 @@
         }
 
         .card h3 {
+            font-family: 'Rubik', sans-serif;
             font-size: 1.1em;
             margin-bottom: 10px;
             opacity: 0.9;
@@ -107,6 +114,7 @@
         }
 
         .section-title {
+            font-family: 'Rubik', sans-serif;
             color: #000000;
             font-size: 1.8em;
             margin-bottom: 20px;
@@ -168,6 +176,7 @@
         }
 
         .member-name {
+            font-family: 'Rubik', sans-serif;
             font-size: 1.3em;
             font-weight: 600;
             color: #000000;
@@ -284,6 +293,7 @@
         }
 
         .modal-member-name {
+            font-family: 'Rubik', sans-serif;
             font-size: 1.8em;
             font-weight: 700;
             color: #000000;
@@ -306,6 +316,7 @@
         }
 
         .payment-details h3 {
+            font-family: 'Rubik', sans-serif;
             color: #000000;
             margin-bottom: 15px;
             font-size: 1.3em;
@@ -523,6 +534,7 @@
             }
 
             .member-name {
+                font-family: 'Rubik', sans-serif;
                 font-size: 1.2em;
             }
 
@@ -576,6 +588,7 @@
             }
 
             .modal-member-name {
+                font-family: 'Rubik', sans-serif;
                 font-size: 1.5em;
             }
 
@@ -636,14 +649,17 @@
             }
 
             .card h3 {
+                font-family: 'Rubik', sans-serif;
                 font-size: 1em;
             }
 
             .header h1 {
+                font-family: 'Rubik', sans-serif;
                 font-size: 1.8em;
             }
 
             .section-title {
+                font-family: 'Rubik', sans-serif;
                 font-size: 1.3em;
             }
         }
@@ -659,13 +675,13 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 740,26</div>
+                <div class="value">R$ 930,31</div>
                 <small>Incluindo rendimentos</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
-                <div class="value">R$ 720,00</div>
-                <small>5 de 20 meses concluídos</small>
+                <div class="value">R$ 900,00</div>
+                <small>6 de 20 meses concluídos</small>
             </div>
             <div class="card">
                 <h3>Meta Total</h3>
@@ -674,17 +690,9 @@
             </div>
             <div class="card">
                 <h3>Progresso</h3>
-                <div class="value">25.0%</div>
-                <small>5 de 20 meses concluídos</small>
+                <div class="value">30.0%</div>
+                <small>6 de 20 meses concluídos</small>
             </div>
-        </div>
-
-        <div class="progress-section">
-            <h2 class="section-title">Progresso Geral</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 25.0%;"></div>
-            </div>
-            <p style="text-align: center; color: #999999;">25.0% concluído • R$ 2.280 restantes</p>
         </div>
 
         <div class="progress-section">
@@ -707,8 +715,8 @@
         </div>
 
         <div class="update-info">
-            <p><strong>Última atualização:</strong> 31 de julho de 2025</p>
-            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 20,26</strong> até agora.</p>
+            <p><strong>Última atualização:</strong> 31 de agosto de 2025</p>
+            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 30,31</strong> até agora.</p>
         </div>
     </div>
 
@@ -743,8 +751,8 @@
                 name: 'Laís', 
                 initial: 'L', 
                 color: '#8B4513', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
-                total: 120 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025'], 
+                total: 150 
             },
             { 
                 name: 'Vanessa', 
@@ -757,15 +765,15 @@
                 name: 'Kelly', 
                 initial: 'K', 
                 color: '#2F4F4F', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025'], 
-                total: 120 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025'], 
+                total: 180 
             },
             { 
                 name: 'Sthevan', 
                 initial: 'S', 
                 color: '#8B6F47', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'], 
-                total: 210 
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025'], 
+                total: 300 
             },
             { 
                 name: 'Carlos', 
@@ -783,8 +791,8 @@
             { name: 'Mai 2025', status: 'completed' },
             { name: 'Jun 2025', status: 'completed' },
             { name: 'Jul 2025', status: 'completed' },
-            { name: 'Ago 2025', status: 'current' },
-            { name: 'Set 2025', status: 'future' },
+            { name: 'Ago 2025', status: 'completed' },
+            { name: 'Set 2025', status: 'current' },
             { name: 'Out 2025', status: 'future' },
             { name: 'Nov 2025', status: 'future' },
             { name: 'Dez 2025', status: 'future' },
@@ -807,16 +815,31 @@
             const container = document.getElementById('membersGrid');
             container.innerHTML = '';
             
-            const monthsPassedSoFar = 5;
+            const monthsPassedSoFar = 6; // Mar, Abr, Mai, Jun, Jul, Ago já passaram
             const totalMonths = 20;
 
             members.forEach((member, index) => {
                 const completedPayments = member.payments.length;
-                const missingPayments = Math.max(0, monthsPassedSoFar - completedPayments);
+                const missingPayments = monthsPassedSoFar - completedPayments;
                 
                 const memberCard = document.createElement('div');
                 memberCard.className = 'member-card';
                 memberCard.onclick = () => openMemberModal(member);
+                
+                // Determinar status: somente Kelly (6 meses) e Sthevan (10 meses) estão em dia
+                let statusText = 'Em atraso';
+                let statusColor = '#d32f2f';
+                
+                if (member.name === 'Kelly' && completedPayments >= 6) {
+                    statusText = 'Em dia';
+                    statusColor = '#ccbea7';
+                } else if (member.name === 'Sthevan' && completedPayments >= 6) {
+                    statusText = 'Em dia';
+                    statusColor = '#ccbea7';
+                } else if (missingPayments > 0) {
+                    statusText = `${missingPayments} em atraso`;
+                    statusColor = '#d32f2f';
+                }
                 
                 memberCard.innerHTML = `
                     <div class="member-header">
@@ -830,8 +853,8 @@
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span style="color: #999999;">Pagamentos: ${completedPayments}/${totalMonths}</span>
-                        <span style="color: ${missingPayments > 0 ? '#000000' : '#ccbea7'}; font-weight: 600;">
-                            ${missingPayments > 0 ? `${missingPayments} em atraso` : 'Em dia'}
+                        <span style="color: ${statusColor}; font-weight: 600;">
+                            ${statusText}
                         </span>
                     </div>
                     <div class="click-hint">
@@ -878,7 +901,7 @@
             const totalPending = 20 - totalPaid;
             const amountPaid = totalPaid * 30;
             const amountPending = totalPending * 30;
-            const monthsPassed = 5;
+            const monthsPassed = 6; // Mar, Abr, Mai, Jun, Jul, Ago já passaram
             const inArrears = Math.max(0, monthsPassed - totalPaid);
 
             // Renderizar resumo
@@ -949,7 +972,7 @@
                 timelineItem.className = 'timeline-item';
                 
                 // Ocultar meses futuros se não estiver mostrando todos
-                if (!showAllMonths && month.status === 'future' && index > 5) {
+                if (!showAllMonths && month.status === 'future' && index > 7) {
                     timelineItem.className += ' hidden';
                 }
                 
@@ -974,9 +997,36 @@
                         </div>
                     `;
                 } else if (month.status === 'current') {
-                    statusText = 'Mês atual - aguardando pagamentos';
+                    // Setembro - verificar se Sthevan já pagou
+                    const sthevan = members.find(m => m.name === 'Sthevan');
+                    if (sthevan && sthevan.payments.includes(month.name)) {
+                        statusText = 'R$ 30 arrecadados';
+                        avatarsHtml = `
+                            <div class="timeline-avatars">
+                                <div class="timeline-avatar" style="background-color: ${sthevan.color};" title="${sthevan.name}">
+                                    ${sthevan.initial}
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        statusText = 'Mês atual - aguardando pagamentos';
+                    }
                 } else {
-                    statusText = 'R$ 150 esperados';
+                    // Para meses futuros, verificar se Sthevan já pagou adiantado
+                    const sthevanPaidFuture = ['Out 2025', 'Nov 2025', 'Dez 2025'].includes(month.name);
+                    if (sthevanPaidFuture) {
+                        const sthevan = members.find(m => m.name === 'Sthevan');
+                        statusText = 'R$ 30 arrecadados (adiantado)';
+                        avatarsHtml = `
+                            <div class="timeline-avatars">
+                                <div class="timeline-avatar" style="background-color: ${sthevan.color};" title="${sthevan.name}">
+                                    ${sthevan.initial}
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        statusText = 'R$ 150 esperados';
+                    }
                 }
                 
                 timelineItem.innerHTML = `
