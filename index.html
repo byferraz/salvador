@@ -675,13 +675,13 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 1.065,79</div>
+                <div class="value">R$ 1.285,23</div>
                 <small>Incluindo rendimentos</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
-                <div class="value">R$ 1.020,00</div>
-                <small>7 de 20 meses concluídos</small>
+                <div class="value">R$ 1.230,00</div>
+                <small>8 de 20 meses concluídos</small>
             </div>
             <div class="card">
                 <h3>Meta Total</h3>
@@ -690,8 +690,8 @@
             </div>
             <div class="card">
                 <h3>Progresso</h3>
-                <div class="value">35.0%</div>
-                <small>7 de 20 meses concluídos</small>
+                <div class="value">40.0%</div>
+                <small>8 de 20 meses concluídos</small>
             </div>
         </div>
 
@@ -715,8 +715,8 @@
         </div>
 
         <div class="update-info">
-            <p><strong>Última atualização:</strong> 13 de outubro de 2025</p>
-            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 45,79</strong> até agora.</p>
+            <p><strong>Última atualização:</strong> 4 de novembro de 2025</p>
+            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 55,23</strong> até agora.</p>
         </div>
     </div>
 
@@ -747,40 +747,40 @@
     <script>
         // Dados dos membros com cores individuais
         const members = [
-            { 
-                name: 'Laís', 
-                initial: 'L', 
-                color: '#8B4513', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025'], 
-                total: 150 
+            {
+                name: 'Laís',
+                initial: 'L',
+                color: '#8B4513',
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025'],
+                total: 150
             },
-            { 
-                name: 'Vanessa', 
-                initial: 'V', 
-                color: '#556B2F', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'], 
-                total: 210 
+            {
+                name: 'Vanessa',
+                initial: 'V',
+                color: '#556B2F',
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'],
+                total: 210
             },
-            { 
-                name: 'Kelly', 
-                initial: 'K', 
-                color: '#2F4F4F', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'], 
-                total: 210 
+            {
+                name: 'Kelly',
+                initial: 'K',
+                color: '#2F4F4F',
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'],
+                total: 210
             },
-            { 
-                name: 'Sthevan', 
-                initial: 'S', 
-                color: '#8B6F47', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025'], 
-                total: 300 
+            {
+                name: 'Sthevan',
+                initial: 'S',
+                color: '#8B6F47',
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025', 'Jan 2026', 'Fev 2026', 'Mar 2026', 'Abr 2026', 'Mai 2026'],
+                total: 450
             },
-            { 
-                name: 'Carlos', 
-                initial: 'C', 
-                color: '#4A4A4A', 
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025'], 
-                total: 150 
+            {
+                name: 'Carlos',
+                initial: 'C',
+                color: '#4A4A4A',
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025'],
+                total: 210
             }
         ];
 
@@ -793,8 +793,8 @@
             { name: 'Jul 2025', status: 'completed' },
             { name: 'Ago 2025', status: 'completed' },
             { name: 'Set 2025', status: 'completed' },
-            { name: 'Out 2025', status: 'current' },
-            { name: 'Nov 2025', status: 'future' },
+            { name: 'Out 2025', status: 'completed' },
+            { name: 'Nov 2025', status: 'current' },
             { name: 'Dez 2025', status: 'future' },
             { name: 'Jan 2026', status: 'future' },
             { name: 'Fev 2026', status: 'future' },
@@ -815,7 +815,7 @@
             const container = document.getElementById('membersGrid');
             container.innerHTML = '';
             
-            const monthsPassedSoFar = 7; // Mar, Abr, Mai, Jun, Jul, Ago, Set já passaram
+            const monthsPassedSoFar = 8; // Mar, Abr, Mai, Jun, Jul, Ago, Set, Out já passaram
             const totalMonths = 20;
 
             members.forEach((member, index) => {
@@ -826,19 +826,21 @@
                 memberCard.className = 'member-card';
                 memberCard.onclick = () => openMemberModal(member);
                 
-                // Determinar status: Kelly (7 meses), Vanessa (7 meses) e Sthevan (10 meses) estão em dia
-                // Carlos e Laís estão 2 meses em atraso
+                // Determinar status: Kelly (7 meses), Vanessa (7 meses), Carlos (7 meses) e Sthevan (15 meses)
+                // Kelly, Vanessa e Carlos devem 1 mês (outubro)
+                // Laís deve 3 meses (agosto, setembro e outubro)
                 let statusText = 'Em atraso';
                 let statusColor = '#d32f2f';
-                
-                if ((member.name === 'Kelly' && completedPayments >= 7) || 
-                    (member.name === 'Vanessa' && completedPayments >= 7) ||
-                    (member.name === 'Sthevan' && completedPayments >= 7)) {
+
+                if (member.name === 'Sthevan' && completedPayments >= 8) {
                     statusText = 'Em dia';
                     statusColor = '#ccbea7';
                 } else if (missingPayments > 0) {
-                    statusText = `${missingPayments} em atraso`;
+                    statusText = `${missingPayments} ${missingPayments === 1 ? 'mês' : 'meses'} em atraso`;
                     statusColor = '#d32f2f';
+                } else if (missingPayments === 0) {
+                    statusText = 'Em dia';
+                    statusColor = '#ccbea7';
                 }
                 
                 memberCard.innerHTML = `
@@ -901,7 +903,7 @@
             const totalPending = 20 - totalPaid;
             const amountPaid = totalPaid * 30;
             const amountPending = totalPending * 30;
-            const monthsPassed = 7; // Mar, Abr, Mai, Jun, Jul, Ago, Set já passaram
+            const monthsPassed = 8; // Mar, Abr, Mai, Jun, Jul, Ago, Set, Out já passaram
             const inArrears = Math.max(0, monthsPassed - totalPaid);
 
             // Renderizar resumo
@@ -997,7 +999,7 @@
                         </div>
                     `;
                 } else if (month.status === 'current') {
-                    // Outubro - verificar se Sthevan já pagou
+                    // Novembro - verificar se Sthevan já pagou
                     const sthevan = members.find(m => m.name === 'Sthevan');
                     if (sthevan && sthevan.payments.includes(month.name)) {
                         statusText = 'R$ 30 arrecadados (adiantado)';
@@ -1009,13 +1011,13 @@
                             </div>
                         `;
                     } else {
-                        statusText = 'Mês atual - vencimento dia 31';
+                        statusText = 'Mês atual - vencimento dia 30';
                     }
                 } else {
                     // Para meses futuros, verificar se Sthevan já pagou adiantado
-                    const sthevanPaidFuture = ['Nov 2025', 'Dez 2025'].includes(month.name);
+                    const sthevan = members.find(m => m.name === 'Sthevan');
+                    const sthevanPaidFuture = sthevan && sthevan.payments.includes(month.name);
                     if (sthevanPaidFuture) {
-                        const sthevan = members.find(m => m.name === 'Sthevan');
                         statusText = 'R$ 30 arrecadados (adiantado)';
                         avatarsHtml = `
                             <div class="timeline-avatars">
