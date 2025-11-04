@@ -350,6 +350,17 @@
             border-color: #ebecea;
         }
 
+        .payment-month.overdue {
+            background: #fdecea;
+            color: #000000;
+            border-color: #f5c2c7;
+        }
+
+        .payment-status-overdue {
+            color: #d32f2f;
+            font-weight: 700;
+        }
+
         .payment-summary {
             background: #f8f9fa;
             padding: 20px;
@@ -886,13 +897,21 @@
             paymentsGrid.innerHTML = '';
             months.forEach(month => {
                 const isPaid = member.payments.includes(month.name);
+                const isOverdue = !isPaid && month.status === 'completed';
                 const paymentMonth = document.createElement('div');
-                paymentMonth.className = `payment-month ${isPaid ? 'paid' : 'pending'}`;
+                paymentMonth.className = `payment-month ${isPaid ? 'paid' : isOverdue ? 'overdue' : 'pending'}`;
+
+                const statusLabel = isPaid
+                    ? '✓ Pago'
+                    : isOverdue
+                        ? '<span class="payment-status-overdue">● Em atraso</span>'
+                        : '○ Pendente';
+
                 paymentMonth.innerHTML = `
                     <div style="font-weight: 700;">${month.name.split(' ')[0]}</div>
                     <div style="font-size: 0.8em;">${month.name.split(' ')[1]}</div>
                     <div style="font-size: 0.8em; margin-top: 4px;">
-                        ${isPaid ? '✓ Pago' : '○ Pendente'}
+                        ${statusLabel}
                     </div>
                 `;
                 paymentsGrid.appendChild(paymentMonth);
