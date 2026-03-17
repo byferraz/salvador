@@ -1072,8 +1072,23 @@
         }
 
         // Inicializar
-        renderMembers();
-        renderTimeline();
+        console.log('Inicializando dashboard...');
+        console.log('Members:', members.length);
+        console.log('Months:', months.length);
+
+        try {
+            renderMembers();
+            console.log('renderMembers() executado com sucesso');
+        } catch (e) {
+            console.error('Erro em renderMembers():', e);
+        }
+
+        try {
+            renderTimeline();
+            console.log('renderTimeline() executado com sucesso');
+        } catch (e) {
+            console.error('Erro em renderTimeline():', e);
+        }
     </script>
 </body>
 </html>
