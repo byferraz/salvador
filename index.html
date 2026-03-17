@@ -686,13 +686,13 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 1.285,23</div>
+                <div class="value">R$ 1.380,69</div>
                 <small>Incluindo rendimentos</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
                 <div class="value">R$ 1.230,00</div>
-                <small>8 de 20 meses concluídos</small>
+                <small>12 de 20 meses já passaram</small>
             </div>
             <div class="card">
                 <h3>Meta Total</h3>
@@ -701,8 +701,8 @@
             </div>
             <div class="card">
                 <h3>Progresso</h3>
-                <div class="value">40.0%</div>
-                <small>8 de 20 meses concluídos</small>
+                <div class="value">41.0%</div>
+                <small>R$ 1.230 de R$ 3.000 arrecadados</small>
             </div>
         </div>
 
@@ -726,8 +726,8 @@
         </div>
 
         <div class="update-info">
-            <p><strong>Última atualização:</strong> 4 de novembro de 2025</p>
-            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 55,23</strong> até agora.</p>
+            <p><strong>Última atualização:</strong> 17 de março de 2026</p>
+            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 150,69</strong> até agora.</p>
         </div>
     </div>
 
@@ -805,11 +805,11 @@
             { name: 'Ago 2025', status: 'completed' },
             { name: 'Set 2025', status: 'completed' },
             { name: 'Out 2025', status: 'completed' },
-            { name: 'Nov 2025', status: 'current' },
-            { name: 'Dez 2025', status: 'future' },
-            { name: 'Jan 2026', status: 'future' },
-            { name: 'Fev 2026', status: 'future' },
-            { name: 'Mar 2026', status: 'future' },
+            { name: 'Nov 2025', status: 'completed' },
+            { name: 'Dez 2025', status: 'completed' },
+            { name: 'Jan 2026', status: 'completed' },
+            { name: 'Fev 2026', status: 'completed' },
+            { name: 'Mar 2026', status: 'current' },
             { name: 'Abr 2026', status: 'future' },
             { name: 'Mai 2026', status: 'future' },
             { name: 'Jun 2026', status: 'future' },
@@ -826,7 +826,7 @@
             const container = document.getElementById('membersGrid');
             container.innerHTML = '';
             
-            const monthsPassedSoFar = 8; // Mar, Abr, Mai, Jun, Jul, Ago, Set, Out já passaram
+            const monthsPassedSoFar = 12; // Mar 2025 a Fev 2026 já passaram
             const totalMonths = 20;
 
             members.forEach((member, index) => {
@@ -897,6 +897,8 @@
             paymentsGrid.innerHTML = '';
             months.forEach(month => {
                 const isPaid = member.payments.includes(month.name);
+                const paymentMonth = document.createElement('div');
+                paymentMonth.className = `payment-month ${isPaid ? 'paid' : 'pending'}`;
                 const isOverdue = !isPaid && month.status === 'completed';
                 const paymentMonth = document.createElement('div');
                 paymentMonth.className = `payment-month ${isPaid ? 'paid' : isOverdue ? 'overdue' : 'pending'}`;
@@ -911,6 +913,7 @@
                     <div style="font-weight: 700;">${month.name.split(' ')[0]}</div>
                     <div style="font-size: 0.8em;">${month.name.split(' ')[1]}</div>
                     <div style="font-size: 0.8em; margin-top: 4px;">
+                        ${isPaid ? '✓ Pago' : '○ Pendente'}
                         ${statusLabel}
                     </div>
                 `;
@@ -922,7 +925,7 @@
             const totalPending = 20 - totalPaid;
             const amountPaid = totalPaid * 30;
             const amountPending = totalPending * 30;
-            const monthsPassed = 8; // Mar, Abr, Mai, Jun, Jul, Ago, Set, Out já passaram
+            const monthsPassed = 12; // Mar 2025 a Fev 2026 já passaram
             const inArrears = Math.max(0, monthsPassed - totalPaid);
 
             // Renderizar resumo
