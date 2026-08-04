@@ -686,12 +686,12 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 2.090,81</div>
+                <div class="value">R$ 2.270,81</div>
                 <small>Rendimentos + aporte extra</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
-                <div class="value">R$ 1.770,00</div>
+                <div class="value">R$ 1.950,00</div>
                 <small>17 de 20 meses já passaram</small>
             </div>
             <div class="card">
@@ -701,8 +701,8 @@
             </div>
             <div class="card">
                 <h3>Progresso</h3>
-                <div class="value">59.0%</div>
-                <small>R$ 1.770 de R$ 3.000 arrecadados</small>
+                <div class="value">65.0%</div>
+                <small>R$ 1.950 de R$ 3.000 arrecadados</small>
             </div>
         </div>
 
@@ -769,15 +769,15 @@
                 name: 'Vanessa',
                 initial: 'V',
                 color: '#556B2F',
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025'],
-                total: 270
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025', 'Jan 2026', 'Fev 2026'],
+                total: 360
             },
             {
                 name: 'Kelly',
                 initial: 'K',
                 color: '#2F4F4F',
-                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025'],
-                total: 300
+                payments: ['Mar 2025', 'Abr 2025', 'Mai 2025', 'Jun 2025', 'Jul 2025', 'Ago 2025', 'Set 2025', 'Out 2025', 'Nov 2025', 'Dez 2025', 'Jan 2026', 'Fev 2026', 'Mar 2026'],
+                total: 390
             },
             {
                 name: 'Sthevan',
@@ -837,8 +837,8 @@
                 memberCard.className = 'member-card';
                 memberCard.onclick = () => openMemberModal(member);
                 
-                // Determinar status (17 meses decorridos): Laís (5), Vanessa (9), Kelly (10), Carlos (15) e Sthevan (20)
-                // Laís deve 12 meses, Vanessa deve 8 meses, Kelly deve 7 meses, Carlos deve 2 meses
+                // Determinar status (17 meses decorridos): Laís (5), Vanessa (12), Kelly (13), Carlos (15) e Sthevan (20)
+                // Laís deve 12 meses, Vanessa deve 5 meses, Kelly deve 4 meses, Carlos deve 2 meses
                 // Sthevan está em dia (pagou todos os 20 meses)!
                 let statusText = 'Em atraso';
                 let statusColor = '#d32f2f';
