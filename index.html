@@ -686,13 +686,13 @@
         <div class="summary-cards">
             <div class="card">
                 <h3>Saldo Atual</h3>
-                <div class="value">R$ 1.944,82</div>
-                <small>Incluindo rendimentos</small>
+                <div class="value">R$ 2.090,81</div>
+                <small>Rendimentos + aporte extra</small>
             </div>
             <div class="card">
                 <h3>Total Arrecadado</h3>
                 <div class="value">R$ 1.770,00</div>
-                <small>15 de 20 meses já passaram</small>
+                <small>17 de 20 meses já passaram</small>
             </div>
             <div class="card">
                 <h3>Meta Total</h3>
@@ -726,8 +726,8 @@
         </div>
 
         <div class="update-info">
-            <p><strong>Última atualização:</strong> 29 de maio de 2026</p>
-            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 174,82</strong> até agora.</p>
+            <p><strong>Última atualização:</strong> agosto de 2026</p>
+            <p><strong>Nota:</strong> O dinheiro rendeu <strong>R$ 220,81</strong> até agora. Além disso, foi feito um <strong>aporte extra de R$ 100</strong>.</p>
         </div>
     </div>
 
@@ -812,9 +812,9 @@
             { name: 'Mar 2026', status: 'completed' },
             { name: 'Abr 2026', status: 'completed' },
             { name: 'Mai 2026', status: 'completed' },
-            { name: 'Jun 2026', status: 'current' },
-            { name: 'Jul 2026', status: 'future' },
-            { name: 'Ago 2026', status: 'future' },
+            { name: 'Jun 2026', status: 'completed' },
+            { name: 'Jul 2026', status: 'completed' },
+            { name: 'Ago 2026', status: 'current' },
             { name: 'Set 2026', status: 'future' },
             { name: 'Out 2026', status: 'future' }
         ];
@@ -826,7 +826,7 @@
             const container = document.getElementById('membersGrid');
             container.innerHTML = '';
             
-            const monthsPassedSoFar = 15; // Mar 2025 a Mai 2026 já passaram
+            const monthsPassedSoFar = 17; // Mar 2025 a Jul 2026 já passaram
             const totalMonths = 20;
 
             members.forEach((member, index) => {
@@ -837,9 +837,9 @@
                 memberCard.className = 'member-card';
                 memberCard.onclick = () => openMemberModal(member);
                 
-                // Determinar status: Laís (5 meses), Vanessa (9 meses), Kelly (10 meses), Carlos (15 meses) e Sthevan (20 meses)
-                // Laís deve 10 meses, Vanessa deve 6 meses, Kelly deve 5 meses
-                // Carlos e Sthevan estão em dia!
+                // Determinar status (17 meses decorridos): Laís (5), Vanessa (9), Kelly (10), Carlos (15) e Sthevan (20)
+                // Laís deve 12 meses, Vanessa deve 8 meses, Kelly deve 7 meses, Carlos deve 2 meses
+                // Sthevan está em dia (pagou todos os 20 meses)!
                 let statusText = 'Em atraso';
                 let statusColor = '#d32f2f';
 
@@ -919,7 +919,7 @@
             const totalPending = 20 - totalPaid;
             const amountPaid = totalPaid * 30;
             const amountPending = totalPending * 30;
-            const monthsPassed = 15; // Mar 2025 a Mai 2026 já passaram
+            const monthsPassed = 17; // Mar 2025 a Jul 2026 já passaram
             const inArrears = Math.max(0, monthsPassed - totalPaid);
 
             // Renderizar resumo
